@@ -19,6 +19,10 @@ RUN tar -xjf owncloud-8.0.2.tar.bz2
 RUN cp -r owncloud /var/www
 RUN chown -R www-data:www-data /var/www/owncloud
 
+# install the news app plugin
+RUN wget https://github.com/owncloud/news/archive/5.2.8.tar.gz -O news.tgz
+RUN tar -xjf news.tgz && mv news-5.2.8 /var/www/owncloud/apps/news
+
 # Copy the autoconfig
 ADD autoconfig.php /var/www/owncloud/config/autoconfig.php
 
