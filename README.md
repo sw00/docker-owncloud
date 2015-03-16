@@ -3,9 +3,7 @@ docker-owncloud
 
 Owncloud in a docker image.
 
-`docker run --name mysqldb -e MYSQL_ROOT_PASSWORD=!abcd1234 -d mysql`
-
-`docker run --link mysqldb:db -p 127.0.0.1:9000:80 -d --name owncloud -v /var/data/owncloud:/var/www/owncloud/data sw00/owncloud`
+`docker run -p 127.0.0.1:9000:80 -d --name owncloud -v /var/data/owncloud:/var/www/owncloud/data sw00/owncloud`
 
 
 	server {
