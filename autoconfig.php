@@ -1,6 +1,6 @@
 <?php
 $AUTOCONFIG = array(
-  "directory"     => "/var/www/owncloud/data",
+  "directory"     => "/data/owncloud",
   "dbtype"        => "sqlite",
   "dbname"        => "owncloud",
   "dbtableprefix" => "",
