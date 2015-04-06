@@ -9,7 +9,7 @@ RUN apt-get -y update
 # Install apache2 and php5
 RUN apt-get install -yq php5
 RUN apt-get install -yq apache2 libapache2-mod-php5
-RUN apt-get install -yq php5-gd php5-json php5-sqlite php5-curl
+RUN apt-get install -yq php5-gd php5-json php5-pgsql php5-curl
 RUN apt-get install -yq php5-intl php5-mcrypt php5-imagick
 
 # Install samba for external storage plugin support
@@ -32,6 +32,8 @@ ADD autoconfig.php /var/www/owncloud/config/autoconfig.php
 # Configure it
 RUN rm -rf /etc/apache2/sites-enabled/*
 ADD 001-owncloud.conf /etc/apache2/sites-enabled/001-owncloud.conf
+
+RUN echo "default_charset = \"UTF-8\"" >> /etc/php5/cli/php.ini
 
 RUN a2enmod rewrite
 
