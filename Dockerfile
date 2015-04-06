@@ -1,16 +1,18 @@
 FROM ubuntu:14.04
 MAINTAINER Sett Wai "sett@rigmarolesoup.com"
 RUN apt-get -y update 
-RUN apt-get install -yq wget python-software-properties bzip2
+RUN apt-get install -yq wget software-properties-common bzip2
 
 # update apt cache
+RUN apt-get update
+RUN add-apt-repository ppa:ondrej/php5
 RUN apt-get -y update
 
 # Install apache2 and php5
-RUN apt-get install -yq php5
+RUN apt-get install -yq --force-yes php5
 RUN apt-get install -yq apache2 libapache2-mod-php5
-RUN apt-get install -yq php5-gd php5-json php5-pgsql php5-curl
-RUN apt-get install -yq php5-intl php5-mcrypt php5-imagick
+RUN apt-get install -yq --force-yes php5-gd php5-json php5-pgsql php5-curl
+RUN apt-get install -yq --force-yes php5-intl php5-mcrypt php5-imagick
 
 # Install samba for external storage plugin support
 RUN apt-get install -yq smbclient
