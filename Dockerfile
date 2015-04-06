@@ -13,7 +13,7 @@ RUN apt-get install -yq php5-gd php5-json php5-sqlite php5-curl
 RUN apt-get install -yq php5-intl php5-mcrypt php5-imagick
 
 # Install samba for external storage plugin support
-RUN apt-get install -yq smb-client
+RUN apt-get install -yq smbclient
 
 # Download and untar owncloud installation
 RUN wget https://download.owncloud.org/community/owncloud-8.0.2.tar.bz2
