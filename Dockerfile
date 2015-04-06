@@ -12,6 +12,9 @@ RUN apt-get install -yq apache2 libapache2-mod-php5
 RUN apt-get install -yq php5-gd php5-json php5-sqlite php5-curl
 RUN apt-get install -yq php5-intl php5-mcrypt php5-imagick
 
+# Install samba for external storage plugin support
+RUN apt-get install -yq smb-client
+
 # Download and untar owncloud installation
 RUN wget https://download.owncloud.org/community/owncloud-8.0.2.tar.bz2
 RUN tar -xjf owncloud-8.0.2.tar.bz2
@@ -24,7 +27,7 @@ RUN wget https://github.com/owncloud/news/archive/5.2.8.tar.gz -O news.tgz
 RUN tar -xvf news.tgz && mv news-5.2.8 /var/www/owncloud/apps/news
 
 # Copy the autoconfig
-ADD autoconfig.php /var/www/owncloud/config/autoconfig.php
+#ADD autoconfig.php /var/www/owncloud/config/autoconfig.php
 
 # Configure it
 RUN rm -rf /etc/apache2/sites-enabled/*
