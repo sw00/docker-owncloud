@@ -27,7 +27,7 @@ RUN wget https://github.com/owncloud/news/archive/5.2.8.tar.gz -O news.tgz
 RUN tar -xvf news.tgz && mv news-5.2.8 /var/www/owncloud/apps/news
 
 # Copy the autoconfig
-#ADD autoconfig.php /var/www/owncloud/config/autoconfig.php
+ADD autoconfig.php /var/www/owncloud/config/autoconfig.php
 
 # Configure it
 RUN rm -rf /etc/apache2/sites-enabled/*
